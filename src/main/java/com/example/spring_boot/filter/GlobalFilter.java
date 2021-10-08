@@ -16,7 +16,7 @@ import java.io.IOException;
 // 필터는 제일 최전방에서 작업을 처리하는 곳이다!
 // 보통 로깅용으로 많이 사용, 다단계 인증이 아니면 보통 인터셉터에서 인증을 구현한다.
 // 상황에 따라 사람에 따라 다르다.
-// 필터를 컨테이너에 등록
+// 필터를 웹어플리케이션에 등록
 @WebFilter(urlPatterns = "/api/user/*")
 public class GlobalFilter implements Filter {
 
