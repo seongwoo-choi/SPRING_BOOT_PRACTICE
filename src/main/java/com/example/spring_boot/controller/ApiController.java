@@ -2,6 +2,7 @@ package com.example.spring_boot.controller;
 
 
 import com.example.spring_boot.dto.User;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -10,37 +11,21 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
+
 import javax.validation.Valid;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+// lombok 을 사용하면 Slf4j 사용 가능 => log.info() 로 정보를 찍을 수 있다.
+@Slf4j
 @RestController
-@RequestMapping("/api/user")
-@Validated // RequestParam 에 대한 유효성 검사가 가능해진다.
+@RequestMapping("/api")
 public class ApiController {
 
-    @GetMapping("")
-    public User get(
-            @Size(min=2, max=10) // RequestParam 에 대한 범위 설정
-            @RequestParam(required = false) String name,
-
-            @NotNull // RequestParam 에 대한 범위 설정
-            @Min(1)
-            @RequestParam(required = false) Integer age){
-        User user = new User();
-        user.setName(name);
-        user.setAge(age);
-
-        // age 에 값이 들어오지 않는다면 a 는 null 이 된다.
-        int a = 10 + age;
-
-        return user;
-    }
-
-    @PostMapping("")
-    public User post(@Valid @RequestBody User user){
-        System.out.println(user);
+    @PostMapping("/user")
+    public User user(@RequestBody User user){
+        log.info("user : {}, {}", user, user);
 
         return user;
     }
