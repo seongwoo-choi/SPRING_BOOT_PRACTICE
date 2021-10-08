@@ -16,7 +16,8 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER, TYPE_USE })
 @Retention(RUNTIME)
 public @interface YearMonth {
-    String message() default "yyyyMM 의 형식에 맞지 않습니다.";
+
+    String message() default "yyyyMM 형식에 맞지 않습니다.";
 
     Class<?>[] groups() default { };
 
@@ -24,3 +25,4 @@ public @interface YearMonth {
 
     String pattern() default "yyyyMMdd";
 }
+
