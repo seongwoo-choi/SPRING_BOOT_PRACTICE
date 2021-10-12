@@ -18,5 +18,7 @@ public class User {
 
 //    @Min(value = 1)
 //    @NotNull
-    private Integer age;
+//    private Integer age;
+    private int age;
 }
+
